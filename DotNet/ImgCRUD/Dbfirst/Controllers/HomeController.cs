@@ -16,7 +16,7 @@ namespace Dbfirst.Controllers
 
         public IActionResult Index()
         {
-            return View(db.Products.ToList());
+            return View(db.products.ToList());
         }
         public IActionResult AddProduct()
         {

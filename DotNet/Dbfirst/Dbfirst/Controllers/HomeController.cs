@@ -17,6 +17,19 @@ namespace Dbfirst.Controllers
         {
             return View(db.Products.ToList());
         }
+
+        [HttpPost]
+        public IActionResult Index(string searchQuery)
+        {
+            var products = string.IsNullOrEmpty(searchQuery)
+                ? db.Products.ToList()
+                    : db.Products
+                        .Where(p => p.Name.Contains(searchQuery) || p.Description.Contains(searchQuery))
+                        .ToList();
+
+            ViewData["SearchQuery"] = searchQuery;
+            return View(products);
+        }
         public IActionResult AddProduct()
         {
             return View();

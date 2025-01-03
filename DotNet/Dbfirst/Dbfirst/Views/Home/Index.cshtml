@@ -6,13 +6,16 @@
 
 <h1>Index</h1>
 
+<form asp-action="Index">
+    <input type="search" name="searchQuery" value="@ViewData["SearchQuery"]" />
+    <input type="submit" />
+</form>
+
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="AddProduct">Create New</a>
 </p>
 <table class="table">
-    <thead>
-        <tr>
-            <th>
+   
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
